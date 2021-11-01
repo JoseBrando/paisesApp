@@ -4,38 +4,14 @@
     <h2>Busquedas</h2>
     <hr>
     <ul class="list-group">
-      <li class="list-group-item" [ngClass]="{'active': option === 'buscarPais'}" (click)="onOption('buscarPais')">Buscar país</li>
-      <li class="list-group-item" [ngClass]="{'active': option === 'porRegion'}" (click)="onOption('porRegion')">Por región</li>
-      <li class="list-group-item" [ngClass]="{'active': option === 'porCapital'}" (click)="onOption('porCapital')">Por capital</li>
+      <li class="list-group-item">Buscar país</li>
+      <li class="list-group-item">Por región</li>
+      <li class="list-group-item">Por capital</li>
     </ul>
   </div>
 
   <div class="col-9">
-    <div [ngSwitch]="option">
-
-      <div *ngSwitchCase="'buscarPais'">
-        <h2>Buscar país</h2>
-        <hr>
-        <app-por-pais></app-por-pais>
-      </div>
-
-      <div *ngSwitchCase="'porRegion'">
-        <h2>Por región</h2>
-        <hr>
-        <app-por-region></app-por-region>
-      </div>
-
-      <div *ngSwitchCase="'porCapital'">
-        <h2>Por capital</h2>
-        <hr>
-        <app-por-capital></app-por-capital>
-      </div>
-
-      <div *ngSwitchDefault>
-        <h2>Nada para mostrar</h2>
-      </div>
-
-    </div>
+    <router-outlet></router-outlet>
   </div>
 
 </div>

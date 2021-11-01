@@ -7,10 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   
-  public option: string = 'buscarPais';
-
-  public onOption(option: string): void {
-    this.option = option;
-  }
+  
 
 }

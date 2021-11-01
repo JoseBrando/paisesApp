@@ -12,8 +12,7 @@ import { VerPaisComponent } from './pais/pages/ver-pais/ver-pais.component';
 const routes: Routes = [
   {
     path: '',
-    component: PorPaisComponent,
-    pathMatch: 'full'
+    component: PorPaisComponent
   },
   {
     path: 'region',

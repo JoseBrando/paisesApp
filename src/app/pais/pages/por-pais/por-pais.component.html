@@ -10,11 +10,11 @@
 </div>
 
 <hr>
-<div class="alert alert-danger">
-    No se encontró nada con el término XXXX
+<div class="alert alert-danger" *ngIf="hayError">
+    No se encontró nada con el término {{ termino }}
 </div>
 
-<div class="row">
+<div class="row" *ngIf="!hayError">
     <div class="col">
         <table class="table table-hover">
             <thead>

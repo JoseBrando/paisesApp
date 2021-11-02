@@ -14,7 +14,7 @@
     No se encontró nada con el término {{ termino }}
 </div>
 
-<div class="row" *ngIf="!hayError">
+<div class="row" *ngIf="paises.length > 0">
     <div class="col">
         <table class="table table-hover">
             <thead>
@@ -27,12 +27,22 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                <tr *ngFor="let item of paises; let i = index;">
+                    <td>
+                        {{ i }}
+                    </td>
+                    <td>
+                        <img class="small-flag" [src]="item.flags.png">
+                    </td>
+                    <td>
+                        {{ item.name.common }}
+                    </td>
+                    <td>
+                        {{ item.population | number }}
+                    </td>
+                    <td>
+                        <a [routerLink]="['/pais', item.alpha2Code]">Ver...</a>
+                    </td>
                 </tr>
             </tbody>
         </table>

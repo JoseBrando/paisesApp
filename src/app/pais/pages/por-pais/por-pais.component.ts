@@ -13,8 +13,9 @@ import { PaisService } from '../../services/pais.service';
 })
 export class PorPaisComponent implements OnInit {
 
-  public termino: string = 'Hola Mundo';
+  public termino: string = '';
   public hayError = false;
+  public paises: any[] = [];
 
   constructor(private paisService: PaisService) { }
 
@@ -25,10 +26,12 @@ export class PorPaisComponent implements OnInit {
     this.paisService.buscarPais(this.termino)
     .subscribe((response) => {
       console.log(response);
+      this.paises = response;
     },
     (error) => {
 
       this.hayError = true;
+      this.paises = [];
       setTimeout(() => {
         this.hayError = false;
       }, 3500)

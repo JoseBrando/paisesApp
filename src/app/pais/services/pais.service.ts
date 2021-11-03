@@ -37,4 +37,9 @@ export class PaisService {
     return this.http.get( URL );
   }
 
+  public getPais(id: string): Observable<any> {
+    const URL = `${ this.apiUrl }/name/${ id }?fullText=true`;
+    return this.http.get( URL );
+  }
+
 }

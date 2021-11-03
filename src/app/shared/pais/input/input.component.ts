@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Subject } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 
 // Services
 import { PaisService } from '../../../pais/services/pais.service';
@@ -21,11 +23,22 @@ export class InputComponent implements OnInit {
   public termino: string = '';
   @Output() emitRespuestaServise = new EventEmitter<[]>();
   @Output() emitError = new EventEmitter<Error>();
+  @Output() onDebounce = new EventEmitter<string>();
   @Input('nameComponent') componente: string = '';
+  @Input() placeholder: string = '';
+
+  debouncer: Subject<string> = new Subject();
 
   constructor(private paisService: PaisService) { }
 
   ngOnInit(): void {
+    this.debouncer
+    .pipe(
+      debounceTime(500)
+    )
+    .subscribe( valor => {
+      this.onDebounce.emit(valor);
+    });
   }
 
   public onBuscar(): void {
@@ -66,10 +79,6 @@ export class InputComponent implements OnInit {
         (error) => {
           this.emitirStatusError(true);
           this.emitirRespuesta([])
-
-          setTimeout(() => {
-            this.emitirStatusError(false);
-          }, 3500)
         });
         break;
     }
@@ -84,6 +93,10 @@ export class InputComponent implements OnInit {
       error: error,
       termino: this.termino
     });
+  }
+
+  public teclaPresionada(event: any): void {
+    this.debouncer.next(this.termino);
   }
 
 }

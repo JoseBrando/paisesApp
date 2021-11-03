@@ -3,7 +3,11 @@
 
 <div class="row">
     <div class="col">
-        <app-input (emitRespuestaServise)="respuestaService($event)" (emitError)="respuestaError($event)" [nameComponent]="componente"></app-input>
+        <app-input (emitRespuestaServise)="respuestaService($event)"
+                   (emitError)="respuestaError($event)"
+                   [nameComponent]="componente"
+                   placeholder="Buscar por región...">
+        </app-input>
     </div>
 </div>
 

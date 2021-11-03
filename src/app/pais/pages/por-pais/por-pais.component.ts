@@ -29,4 +29,8 @@ export class PorPaisComponent implements OnInit {
     this.termino = obj.termino;
   }
 
+  public sugerencias(termino: string): void {
+    this.hayError = false;
+  }
+
 }

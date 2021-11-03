@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-// Services
-import { PaisService } from '../../services/pais.service';
-
 
 
 @Component({
@@ -13,29 +10,23 @@ import { PaisService } from '../../services/pais.service';
 })
 export class PorPaisComponent implements OnInit {
 
-  public termino: string = '';
   public hayError = false;
   public paises: any[] = [];
+  public termino: string = '';
+  public componente: string = 'Por pais';
 
-  constructor(private paisService: PaisService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
 
-  public buscar(): void {
-    this.paisService.buscarPais(this.termino)
-    .subscribe((response) => {
-      console.log(response);
-      this.paises = response;
-    },
-    (error) => {
+  public respuestaService(paises: []): void {
+    this.paises = paises;
+  }
 
-      this.hayError = true;
-      this.paises = [];
-      setTimeout(() => {
-        this.hayError = false;
-      }, 3500)
-    });
+  public respuestaError(obj: any): void {
+    this.hayError = obj.error;
+    this.termino = obj.termino;
   }
 
 }

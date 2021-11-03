@@ -8,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PorRegionComponent implements OnInit {
 
+  public hayError = false;
+  public paises: any[] = [];
+  public termino: string = '';
+  public componente: string = 'Por region';
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  public respuestaService(paises: []): void {
+    this.paises = paises;
+  }
+
+  public respuestaError(obj: any): void {
+    this.hayError = obj.error;
+    this.termino = obj.termino;
   }
 
 }

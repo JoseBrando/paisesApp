@@ -1,7 +1,10 @@
 // Extensión: REST Client
 
+// Variables
+@api = https://restcountries.com/v3.1
+
 ### Buscar países por nombre
-GET https://restcountries.com/v3.1/name/mex
+GET {{api}}/name/mex
 
 
 ### Creando una nueva publicación

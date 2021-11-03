@@ -25,4 +25,16 @@ export class PaisService {
     // );
   }
 
+  public buscarPaisPorRegion(termino: string): Observable<any> {
+
+    const URL = `${ this.apiUrl }/region/${ termino }`;
+    return this.http.get( URL );
+  }
+
+  public buscarPaisPorCapital(termino: string): Observable<any> {
+
+    const URL = `${ this.apiUrl }/capital/${ termino }`;
+    return this.http.get( URL );
+  }
+
 }

@@ -1,0 +1,26 @@
+// Extensión: REST Client
+
+### Buscar países por nombre
+GET https://restcountries.com/v3.1/name/mex
+
+
+### Creando una nueva publicación
+POST https://jsonplaceholder.typicode.com/posts
+Content-Type: application/json
+
+{
+    "title": "Prueba extensión rest client",
+    "body": "Superman le pega a Batman"
+}
+
+### Eliminando una publicación
+DELETE https://jsonplaceholder.typicode.com/posts/1
+
+### Actualizando una publicación por id
+PUT https://jsonplaceholder.typicode.com/posts/1
+Content-Type: application/json
+
+{
+    "title": "Actualizando contenido",
+    "body": "Una vez Batman le gano a Superman"
+}

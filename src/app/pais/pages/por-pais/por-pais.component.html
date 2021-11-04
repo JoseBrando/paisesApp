@@ -12,6 +12,12 @@
     </div>
 </div>
 
+<!-- <ul class="list-group">
+    <li class="list-group-item list-group-item-action" *ngFor="let item of paisesSugeridos">
+        <a class="nav-link" [routerLink]="['/pais', item.name.common]">{{ item.name.common }}</a>
+    </li>
+</ul> -->
+
 <hr>
 <div class="alert alert-danger" *ngIf="hayError">
     No se encontró nada con el término {{ termino }}
